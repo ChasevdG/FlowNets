@@ -1,0 +1,10 @@
++ [[ hB != hxB ]]
++ XTRACE_STATE=-x
++ [[ hxB != hxB ]]
++ VERBOSE_STATE=+v
++ set +xv
++ unset XTRACE_STATE VERBOSE_STATE
++ srun python Bayesian_CNN_Detailed.py
+srun: Job step aborted: Waiting up to 6 seconds for job step to finish.
+error: *** step 7492038:0 CANCELLED DUE TO TIME LIMIT ***
+srun: error: jrc0941: task 0: Terminated

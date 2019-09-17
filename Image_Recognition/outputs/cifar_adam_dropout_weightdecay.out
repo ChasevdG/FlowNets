@@ -1,0 +1,608 @@
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for this output (/gpfs/software/juwels/lmod/7.7.38/init/bash)
+Shell debugging restarted
+Resnet18-CIFAR10-Adam-WDecay
+Files already downloaded and verified
+Files already downloaded and verified
+Size of image
+torch.Size([3, 32, 32])
+1
+Epoch: 0
+[TRAIN] Acc: 17.453
+[TEST] Acc: 22.100
+Epoch: 1
+[TRAIN] Acc: 33.367
+[TEST] Acc: 31.820
+Epoch: 2
+[TRAIN] Acc: 42.078
+[TEST] Acc: 32.980
+Epoch: 3
+[TRAIN] Acc: 47.055
+[TEST] Acc: 31.610
+Epoch: 4
+[TRAIN] Acc: 50.083
+[TEST] Acc: 36.260
+Epoch: 5
+[TRAIN] Acc: 52.360
+[TEST] Acc: 43.970
+Epoch: 6
+[TRAIN] Acc: 54.535
+[TEST] Acc: 44.400
+Epoch: 7
+[TRAIN] Acc: 56.445
+[TEST] Acc: 42.150
+Epoch: 8
+[TRAIN] Acc: 57.955
+[TEST] Acc: 45.570
+Epoch: 9
+[TRAIN] Acc: 59.355
+[TEST] Acc: 44.730
+Epoch: 10
+[TRAIN] Acc: 60.625
+[TEST] Acc: 43.680
+Epoch: 11
+[TRAIN] Acc: 61.532
+[TEST] Acc: 43.850
+Epoch: 12
+[TRAIN] Acc: 62.620
+[TEST] Acc: 47.570
+Epoch: 13
+[TRAIN] Acc: 63.127
+[TEST] Acc: 47.160
+Epoch: 14
+[TRAIN] Acc: 63.955
+[TEST] Acc: 50.360
+Epoch: 15
+[TRAIN] Acc: 64.315
+[TEST] Acc: 51.460
+Epoch: 16
+[TRAIN] Acc: 65.145
+[TEST] Acc: 48.410
+Epoch: 17
+[TRAIN] Acc: 65.500
+[TEST] Acc: 50.040
+Epoch: 18
+[TRAIN] Acc: 66.150
+[TEST] Acc: 54.800
+Epoch: 19
+[TRAIN] Acc: 66.455
+[TEST] Acc: 53.720
+Epoch: 20
+[TRAIN] Acc: 67.252
+[TEST] Acc: 51.740
+Epoch: 21
+[TRAIN] Acc: 67.213
+[TEST] Acc: 51.550
+Epoch: 22
+[TRAIN] Acc: 67.800
+[TEST] Acc: 54.470
+Epoch: 23
+[TRAIN] Acc: 68.115
+[TEST] Acc: 55.870
+Epoch: 24
+[TRAIN] Acc: 68.455
+[TEST] Acc: 56.820
+Epoch: 25
+[TRAIN] Acc: 68.903
+[TEST] Acc: 50.370
+Epoch: 26
+[TRAIN] Acc: 68.980
+[TEST] Acc: 52.330
+Epoch: 27
+[TRAIN] Acc: 69.793
+[TEST] Acc: 58.650
+Epoch: 28
+[TRAIN] Acc: 69.925
+[TEST] Acc: 56.450
+Epoch: 29
+[TRAIN] Acc: 69.990
+[TEST] Acc: 56.070
+Epoch: 30
+[TRAIN] Acc: 70.308
+[TEST] Acc: 57.960
+Epoch: 31
+[TRAIN] Acc: 70.720
+[TEST] Acc: 57.200
+Epoch: 32
+[TRAIN] Acc: 70.935
+[TEST] Acc: 58.270
+Epoch: 33
+[TRAIN] Acc: 71.080
+[TEST] Acc: 57.750
+Epoch: 34
+[TRAIN] Acc: 71.420
+[TEST] Acc: 56.350
+Epoch: 35
+[TRAIN] Acc: 71.295
+[TEST] Acc: 58.270
+Epoch: 36
+[TRAIN] Acc: 72.005
+[TEST] Acc: 58.270
+Epoch: 37
+[TRAIN] Acc: 72.218
+[TEST] Acc: 59.940
+Epoch: 38
+[TRAIN] Acc: 72.225
+[TEST] Acc: 59.970
+Epoch: 39
+[TRAIN] Acc: 72.382
+[TEST] Acc: 54.070
+Epoch: 40
+[TRAIN] Acc: 72.770
+[TEST] Acc: 61.060
+Epoch: 41
+[TRAIN] Acc: 72.540
+[TEST] Acc: 61.530
+Epoch: 42
+[TRAIN] Acc: 73.145
+[TEST] Acc: 61.580
+Epoch: 43
+[TRAIN] Acc: 72.995
+[TEST] Acc: 60.090
+Epoch: 44
+[TRAIN] Acc: 73.205
+[TEST] Acc: 60.790
+Epoch: 45
+[TRAIN] Acc: 73.430
+[TEST] Acc: 58.290
+Epoch: 46
+[TRAIN] Acc: 73.528
+[TEST] Acc: 60.250
+Epoch: 47
+[TRAIN] Acc: 73.547
+[TEST] Acc: 58.520
+Epoch: 48
+[TRAIN] Acc: 73.588
+[TEST] Acc: 63.130
+Epoch: 49
+[TRAIN] Acc: 73.892
+[TEST] Acc: 61.320
+Epoch: 50
+[TRAIN] Acc: 74.407
+[TEST] Acc: 61.840
+Epoch: 51
+[TRAIN] Acc: 74.543
+[TEST] Acc: 63.960
+Epoch: 52
+[TRAIN] Acc: 74.470
+[TEST] Acc: 64.970
+Epoch: 53
+[TRAIN] Acc: 74.550
+[TEST] Acc: 62.690
+Epoch: 54
+[TRAIN] Acc: 74.507
+[TEST] Acc: 63.710
+Epoch: 55
+[TRAIN] Acc: 74.775
+[TEST] Acc: 59.180
+Epoch: 56
+[TRAIN] Acc: 74.983
+[TEST] Acc: 63.200
+Epoch: 57
+[TRAIN] Acc: 74.953
+[TEST] Acc: 60.720
+Epoch: 58
+[TRAIN] Acc: 74.998
+[TEST] Acc: 64.660
+Epoch: 59
+[TRAIN] Acc: 75.285
+[TEST] Acc: 63.660
+Epoch: 60
+[TRAIN] Acc: 75.198
+[TEST] Acc: 63.230
+Epoch: 61
+[TRAIN] Acc: 75.278
+[TEST] Acc: 62.470
+Epoch: 62
+[TRAIN] Acc: 75.502
+[TEST] Acc: 63.970
+Epoch: 63
+[TRAIN] Acc: 75.267
+[TEST] Acc: 62.630
+Epoch: 64
+[TRAIN] Acc: 75.448
+[TEST] Acc: 63.040
+Epoch: 65
+[TRAIN] Acc: 75.485
+[TEST] Acc: 64.230
+Epoch: 66
+[TRAIN] Acc: 75.860
+[TEST] Acc: 64.140
+Epoch: 67
+[TRAIN] Acc: 75.838
+[TEST] Acc: 64.780
+Epoch: 68
+[TRAIN] Acc: 76.140
+[TEST] Acc: 62.380
+Epoch: 69
+[TRAIN] Acc: 76.278
+[TEST] Acc: 63.270
+Epoch: 70
+[TRAIN] Acc: 75.972
+[TEST] Acc: 64.780
+Epoch: 71
+[TRAIN] Acc: 76.177
+[TEST] Acc: 62.050
+Epoch: 72
+[TRAIN] Acc: 76.405
+[TEST] Acc: 64.670
+Epoch: 73
+[TRAIN] Acc: 76.347
+[TEST] Acc: 64.110
+Epoch: 74
+[TRAIN] Acc: 76.430
+[TEST] Acc: 61.310
+Epoch: 75
+[TRAIN] Acc: 76.575
+[TEST] Acc: 63.890
+Epoch: 76
+[TRAIN] Acc: 76.665
+[TEST] Acc: 60.780
+Epoch: 77
+[TRAIN] Acc: 76.950
+[TEST] Acc: 63.010
+Epoch: 78
+[TRAIN] Acc: 76.847
+[TEST] Acc: 63.900
+Epoch: 79
+[TRAIN] Acc: 77.020
+[TEST] Acc: 64.770
+Epoch: 80
+[TRAIN] Acc: 78.358
+[TEST] Acc: 66.320
+Epoch: 81
+[TRAIN] Acc: 78.632
+[TEST] Acc: 66.980
+Epoch: 82
+[TRAIN] Acc: 78.353
+[TEST] Acc: 66.570
+Epoch: 83
+[TRAIN] Acc: 79.013
+[TEST] Acc: 67.480
+Epoch: 84
+[TRAIN] Acc: 79.022
+[TEST] Acc: 67.060
+Epoch: 85
+[TRAIN] Acc: 79.142
+[TEST] Acc: 68.310
+Epoch: 86
+[TRAIN] Acc: 79.000
+[TEST] Acc: 67.390
+Epoch: 87
+[TRAIN] Acc: 79.287
+[TEST] Acc: 67.480
+Epoch: 88
+[TRAIN] Acc: 78.945
+[TEST] Acc: 67.240
+Epoch: 89
+[TRAIN] Acc: 79.355
+[TEST] Acc: 68.380
+Epoch: 90
+[TRAIN] Acc: 78.843
+[TEST] Acc: 67.360
+Epoch: 91
+[TRAIN] Acc: 79.312
+[TEST] Acc: 67.880
+Epoch: 92
+[TRAIN] Acc: 79.015
+[TEST] Acc: 67.670
+Epoch: 93
+[TRAIN] Acc: 79.093
+[TEST] Acc: 67.220
+Epoch: 94
+[TRAIN] Acc: 79.157
+[TEST] Acc: 66.900
+Epoch: 95
+[TRAIN] Acc: 79.112
+[TEST] Acc: 68.740
+Epoch: 96
+[TRAIN] Acc: 79.085
+[TEST] Acc: 67.140
+Epoch: 97
+[TRAIN] Acc: 79.515
+[TEST] Acc: 67.340
+Epoch: 98
+[TRAIN] Acc: 79.078
+[TEST] Acc: 67.070
+Epoch: 99
+[TRAIN] Acc: 79.382
+[TEST] Acc: 68.130
+Epoch: 100
+[TRAIN] Acc: 79.545
+[TEST] Acc: 68.340
+Epoch: 101
+[TRAIN] Acc: 79.487
+[TEST] Acc: 67.580
+Epoch: 102
+[TRAIN] Acc: 79.340
+[TEST] Acc: 66.940
+Epoch: 103
+[TRAIN] Acc: 79.573
+[TEST] Acc: 67.720
+Epoch: 104
+[TRAIN] Acc: 79.183
+[TEST] Acc: 68.250
+Epoch: 105
+[TRAIN] Acc: 79.440
+[TEST] Acc: 67.950
+Epoch: 106
+[TRAIN] Acc: 79.647
+[TEST] Acc: 67.700
+Epoch: 107
+[TRAIN] Acc: 79.305
+[TEST] Acc: 66.900
+Epoch: 108
+[TRAIN] Acc: 79.465
+[TEST] Acc: 67.050
+Epoch: 109
+[TRAIN] Acc: 79.522
+[TEST] Acc: 67.710
+Epoch: 110
+[TRAIN] Acc: 79.495
+[TEST] Acc: 67.500
+Epoch: 111
+[TRAIN] Acc: 79.225
+[TEST] Acc: 67.750
+Epoch: 112
+[TRAIN] Acc: 79.640
+[TEST] Acc: 67.300
+Epoch: 113
+[TRAIN] Acc: 79.490
+[TEST] Acc: 66.550
+Epoch: 114
+[TRAIN] Acc: 79.627
+[TEST] Acc: 67.520
+Epoch: 115
+[TRAIN] Acc: 79.670
+[TEST] Acc: 66.850
+Epoch: 116
+[TRAIN] Acc: 79.623
+[TEST] Acc: 67.160
+Epoch: 117
+[TRAIN] Acc: 79.605
+[TEST] Acc: 68.400
+Epoch: 118
+[TRAIN] Acc: 79.670
+[TEST] Acc: 68.310
+Epoch: 119
+[TRAIN] Acc: 79.838
+[TEST] Acc: 68.420
+Epoch: 120
+[TRAIN] Acc: 80.103
+[TEST] Acc: 68.110
+Epoch: 121
+[TRAIN] Acc: 79.802
+[TEST] Acc: 67.020
+Epoch: 122
+[TRAIN] Acc: 79.735
+[TEST] Acc: 66.710
+Epoch: 123
+[TRAIN] Acc: 79.610
+[TEST] Acc: 68.050
+Epoch: 124
+[TRAIN] Acc: 79.620
+[TEST] Acc: 67.780
+Epoch: 125
+[TRAIN] Acc: 79.642
+[TEST] Acc: 67.320
+Epoch: 126
+[TRAIN] Acc: 79.745
+[TEST] Acc: 68.240
+Epoch: 127
+[TRAIN] Acc: 79.948
+[TEST] Acc: 68.810
+Epoch: 128
+[TRAIN] Acc: 79.838
+[TEST] Acc: 68.670
+Epoch: 129
+[TRAIN] Acc: 79.800
+[TEST] Acc: 67.600
+Epoch: 130
+[TRAIN] Acc: 79.998
+[TEST] Acc: 68.380
+Epoch: 131
+[TRAIN] Acc: 80.142
+[TEST] Acc: 67.520
+Epoch: 132
+[TRAIN] Acc: 79.725
+[TEST] Acc: 67.330
+Epoch: 133
+[TRAIN] Acc: 80.055
+[TEST] Acc: 68.550
+Epoch: 134
+[TRAIN] Acc: 80.050
+[TEST] Acc: 67.400
+Epoch: 135
+[TRAIN] Acc: 79.885
+[TEST] Acc: 67.270
+Epoch: 136
+[TRAIN] Acc: 79.785
+[TEST] Acc: 67.340
+Epoch: 137
+[TRAIN] Acc: 80.070
+[TEST] Acc: 68.160
+Epoch: 138
+[TRAIN] Acc: 79.875
+[TEST] Acc: 68.090
+Epoch: 139
+[TRAIN] Acc: 79.865
+[TEST] Acc: 67.590
+Epoch: 140
+[TRAIN] Acc: 80.035
+[TEST] Acc: 68.650
+Epoch: 141
+[TRAIN] Acc: 80.257
+[TEST] Acc: 67.280
+Epoch: 142
+[TRAIN] Acc: 79.892
+[TEST] Acc: 67.680
+Epoch: 143
+[TRAIN] Acc: 80.147
+[TEST] Acc: 69.110
+Epoch: 144
+[TRAIN] Acc: 80.120
+[TEST] Acc: 67.930
+Epoch: 145
+[TRAIN] Acc: 80.067
+[TEST] Acc: 67.550
+Epoch: 146
+[TRAIN] Acc: 80.078
+[TEST] Acc: 68.050
+Epoch: 147
+[TRAIN] Acc: 80.188
+[TEST] Acc: 67.810
+Epoch: 148
+[TRAIN] Acc: 80.153
+[TEST] Acc: 67.340
+Epoch: 149
+[TRAIN] Acc: 80.400
+[TEST] Acc: 68.840
+Epoch: 150
+[TRAIN] Acc: 80.120
+[TEST] Acc: 67.140
+Epoch: 151
+[TRAIN] Acc: 80.060
+[TEST] Acc: 67.290
+Epoch: 152
+[TRAIN] Acc: 79.965
+[TEST] Acc: 68.500
+Epoch: 153
+[TRAIN] Acc: 80.340
+[TEST] Acc: 67.980
+Epoch: 154
+[TRAIN] Acc: 80.205
+[TEST] Acc: 68.030
+Epoch: 155
+[TRAIN] Acc: 79.953
+[TEST] Acc: 68.000
+Epoch: 156
+[TRAIN] Acc: 80.070
+[TEST] Acc: 67.970
+Epoch: 157
+[TRAIN] Acc: 80.005
+[TEST] Acc: 67.310
+Epoch: 158
+[TRAIN] Acc: 80.343
+[TEST] Acc: 69.400
+Epoch: 159
+[TRAIN] Acc: 80.060
+[TEST] Acc: 67.500
+Epoch: 160
+[TRAIN] Acc: 80.325
+[TEST] Acc: 68.650
+Epoch: 161
+[TRAIN] Acc: 80.207
+[TEST] Acc: 67.060
+Epoch: 162
+[TRAIN] Acc: 80.020
+[TEST] Acc: 68.180
+Epoch: 163
+[TRAIN] Acc: 80.203
+[TEST] Acc: 68.220
+Epoch: 164
+[TRAIN] Acc: 80.082
+[TEST] Acc: 67.520
+Epoch: 165
+[TRAIN] Acc: 79.782
+[TEST] Acc: 67.860
+Epoch: 166
+[TRAIN] Acc: 80.280
+[TEST] Acc: 69.030
+Epoch: 167
+[TRAIN] Acc: 80.062
+[TEST] Acc: 66.980
+Epoch: 168
+[TRAIN] Acc: 79.903
+[TEST] Acc: 68.630
+Epoch: 169
+[TRAIN] Acc: 80.305
+[TEST] Acc: 68.290
+Epoch: 170
+[TRAIN] Acc: 80.218
+[TEST] Acc: 69.290
+Epoch: 171
+[TRAIN] Acc: 80.282
+[TEST] Acc: 68.500
+Epoch: 172
+[TRAIN] Acc: 80.403
+[TEST] Acc: 67.910
+Epoch: 173
+[TRAIN] Acc: 80.457
+[TEST] Acc: 67.940
+Epoch: 174
+[TRAIN] Acc: 80.395
+[TEST] Acc: 67.800
+Epoch: 175
+[TRAIN] Acc: 80.528
+[TEST] Acc: 68.570
+Epoch: 176
+[TRAIN] Acc: 80.078
+[TEST] Acc: 68.610
+Epoch: 177
+[TRAIN] Acc: 80.210
+[TEST] Acc: 68.720
+Epoch: 178
+[TRAIN] Acc: 80.177
+[TEST] Acc: 68.310
+Epoch: 179
+[TRAIN] Acc: 80.192
+[TEST] Acc: 66.320
+Epoch: 180
+[TRAIN] Acc: 80.380
+[TEST] Acc: 67.180
+Epoch: 181
+[TRAIN] Acc: 80.448
+[TEST] Acc: 67.770
+Epoch: 182
+[TRAIN] Acc: 80.218
+[TEST] Acc: 68.630
+Epoch: 183
+[TRAIN] Acc: 80.375
+[TEST] Acc: 68.990
+Epoch: 184
+[TRAIN] Acc: 80.392
+[TEST] Acc: 68.040
+Epoch: 185
+[TRAIN] Acc: 80.215
+[TEST] Acc: 68.130
+Epoch: 186
+[TRAIN] Acc: 79.870
+[TEST] Acc: 68.850
+Epoch: 187
+[TRAIN] Acc: 80.407
+[TEST] Acc: 67.240
+Epoch: 188
+[TRAIN] Acc: 80.385
+[TEST] Acc: 68.760
+Epoch: 189
+[TRAIN] Acc: 79.998
+[TEST] Acc: 69.350
+Epoch: 190
+[TRAIN] Acc: 80.147
+[TEST] Acc: 67.460
+Epoch: 191
+[TRAIN] Acc: 80.455
+[TEST] Acc: 68.900
+Epoch: 192
+[TRAIN] Acc: 80.240
+[TEST] Acc: 68.880
+Epoch: 193
+[TRAIN] Acc: 80.425
+[TEST] Acc: 67.880
+Epoch: 194
+[TRAIN] Acc: 80.415
+[TEST] Acc: 69.220
+Epoch: 195
+[TRAIN] Acc: 80.142
+[TEST] Acc: 67.810
+Epoch: 196
+[TRAIN] Acc: 80.425
+[TEST] Acc: 68.150
+Epoch: 197
+[TRAIN] Acc: 80.210
+[TEST] Acc: 67.480
+Epoch: 198
+[TRAIN] Acc: 80.110
+[TEST] Acc: 68.960
+Epoch: 199
+[TRAIN] Acc: 80.278
+[TEST] Acc: 68.810

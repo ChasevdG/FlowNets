@@ -1,0 +1,123 @@
+Resnet18-CIFAR10-Adam-Fixed
+Files already downloaded and verified
+Files already downloaded and verified
+Size of image
+torch.Size([3, 32, 32])
+Epoch: 0
+[TRAIN] Acc: 21.332
+[TEST] Acc: 32.030
+Epoch: 1
+[TRAIN] Acc: 31.878
+[TEST] Acc: 34.720
+Epoch: 2
+[TRAIN] Acc: 39.640
+[TEST] Acc: 46.690
+Epoch: 3
+[TRAIN] Acc: 43.480
+[TEST] Acc: 48.810
+Epoch: 4
+[TRAIN] Acc: 49.913
+[TEST] Acc: 53.470
+Epoch: 5
+[TRAIN] Acc: 54.030
+[TEST] Acc: 57.220
+Epoch: 6
+[TRAIN] Acc: 57.290
+[TEST] Acc: 59.640
+Epoch: 7
+[TRAIN] Acc: 60.462
+[TEST] Acc: 63.430
+Epoch: 8
+[TRAIN] Acc: 62.475
+[TEST] Acc: 60.640
+Epoch: 9
+[TRAIN] Acc: 64.657
+[TEST] Acc: 62.220
+Epoch: 10
+[TRAIN] Acc: 66.233
+[TEST] Acc: 65.900
+Epoch: 11
+[TRAIN] Acc: 67.873
+[TEST] Acc: 70.060
+Epoch: 12
+[TRAIN] Acc: 69.435
+[TEST] Acc: 69.820
+Epoch: 13
+[TRAIN] Acc: 70.422
+[TEST] Acc: 71.050
+Epoch: 14
+[TRAIN] Acc: 71.933
+[TEST] Acc: 72.030
+Epoch: 15
+[TRAIN] Acc: 71.353
+[TEST] Acc: 73.180
+Epoch: 16
+[TRAIN] Acc: 73.165
+[TEST] Acc: 71.580
+Epoch: 17
+[TRAIN] Acc: 73.912
+[TEST] Acc: 69.790
+Epoch: 18
+[TRAIN] Acc: 74.468
+[TEST] Acc: 72.720
+Epoch: 19
+[TRAIN] Acc: 75.142
+[TEST] Acc: 74.130
+Epoch: 20
+[TRAIN] Acc: 74.918
+[TEST] Acc: 74.610
+Epoch: 21
+[TRAIN] Acc: 75.080
+[TEST] Acc: 73.370
+Epoch: 22
+[TRAIN] Acc: 76.233
+[TEST] Acc: 73.770
+Epoch: 23
+[TRAIN] Acc: 74.882
+[TEST] Acc: 73.810
+Epoch: 24
+[TRAIN] Acc: 77.198
+[TEST] Acc: 77.130
+Epoch: 25
+[TRAIN] Acc: 78.127
+[TEST] Acc: 77.200
+Epoch: 26
+[TRAIN] Acc: 78.183
+[TEST] Acc: 76.790
+Epoch: 27
+[TRAIN] Acc: 77.640
+[TEST] Acc: 70.190
+Epoch: 28
+[TRAIN] Acc: 74.335
+[TEST] Acc: 73.700
+Epoch: 29
+[TRAIN] Acc: 76.567
+[TEST] Acc: 76.650
+Epoch: 30
+[TRAIN] Acc: 78.703
+[TEST] Acc: 78.040
+Epoch: 31
+[TRAIN] Acc: 79.293
+[TEST] Acc: 78.500
+Epoch: 32
+[TRAIN] Acc: 79.907
+[TEST] Acc: 79.100
+Epoch: 33
+[TRAIN] Acc: 79.950
+[TEST] Acc: 78.190
+Epoch: 34
+[TRAIN] Acc: 80.350
+[TEST] Acc: 77.930
+Epoch: 35
+[TRAIN] Acc: 80.507
+[TEST] Acc: 76.630
+Epoch: 36
+[TRAIN] Acc: 81.002
+[TEST] Acc: 76.140
+Epoch: 37
+[TRAIN] Acc: 81.175
+[TEST] Acc: 78.560
+Epoch: 38
+[TRAIN] Acc: 81.105
+[TEST] Acc: 79.210
+Epoch: 39

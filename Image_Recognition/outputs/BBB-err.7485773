@@ -1,0 +1,12 @@
++ [[ hB != hxB ]]
++ XTRACE_STATE=-x
++ [[ hxB != hxB ]]
++ VERBOSE_STATE=+v
++ set +xv
++ unset XTRACE_STATE VERBOSE_STATE
++ srun python Bayesian_CNN_Detailed.py
+/p/project/gsp19/vandegeijn1/BDARTS/Work/PyTorch_practice/PyTorch-BayesianCNN-master/Image_Recognition/utils/BBBlayers.py:49: UserWarning: Using non-probabilistic forward on BBB layer!
+  warnings.warn("Using non-probabilistic forward on BBB layer!", UserWarning)
+error: *** step 7485773:0 CANCELLED DUE TO TIME LIMIT ***
+srun: Job step aborted: Waiting up to 6 seconds for job step to finish.
+srun: error: jrc0035: task 0: Terminated
