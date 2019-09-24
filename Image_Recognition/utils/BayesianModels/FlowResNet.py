@@ -60,7 +60,7 @@ class BasicBlock(nn.Module):
 
     def forward(self, x):
         identity = x
-
+        print("\n Using Non-Bayesian Forward \n")
         out = self.conv1(x)
         out = self.bn1(out)
         out = self.relu(out)
@@ -73,11 +73,13 @@ class BasicBlock(nn.Module):
 
         out += identity
         out = self.relu(out)
-
         return out
-    def probforward(self, x):
-        identity = x
 
+    def probforward(self, x):
+        #print("\nPROB\n")
+        identity = x
+        tot_loss = 0
+        #print("Using Bayesian Forward")
         out,loss = self.conv1.probforward(x)
         tot_loss += loss
         out = self.bn1(out)
@@ -118,6 +120,7 @@ class Bottleneck(nn.Module):
         self.stride = stride
 
     def forward(self, x):
+        print("NON-PROB")
         identity = x
 
         out = self.conv1(x)
@@ -202,7 +205,7 @@ class ResNet(nn.Module):
                                        dilate=replace_stride_with_dilation[2])
         self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
         self.drop = nn.Dropout(p=.5)
-        self.classifier = BBBLinearFactorial(self.q_logvar_init, self.p_logvar_init,512 * block.expansion, num_classes, flow=True)
+        self.classifier = BBBLinearFactorial(self.q_logvar_init, self.p_logvar_init,512 * block.expansion, num_classes, flow=False)
         print(block.expansion)	
 	
         layers2 = [self.conv1, self.bn1, self.relu, self.maxpool, self.layer1, self.layer2, self.layer3, self.layer4, self.avgpool]
@@ -276,11 +279,14 @@ class ResNet(nn.Module):
 
     def pf(self,x,layer):
         kl = 0
+        
         for l in layer:
-                if hasattr(layer, 'probforward') and callable(layer.probforward):
+                #print(l)
+                if hasattr(l, 'probforward') and callable(l.probforward):
                         x, _kl, = l.probforward(x)
                         kl += _kl
                 else:
+                        print(l)
                         x = l.forward(x)
         return x, kl
 

@@ -40,7 +40,7 @@ from torch.utils.data.sampler import SubsetRandomSampler
 
 # from utils.BBBlayers import GaussianVariationalInference
 # from utils.BayesianModels.Bayesian3Conv3FC import BBB3Conv3FC
-from utils.BayesianModels.BayesianAlexNet import BBBAlexNet
+from utils.BayesianModels.FlowTest import FlowTestNet
 from utils.BayesianModels.FlowResNet import resnet18 as BBBCNN
 from utils.NonBayesianModels.Resnet import resnet18 as CNN
 
@@ -50,7 +50,7 @@ from utils.NonBayesianModels.Resnet import resnet18 as CNN
 # In[3]:
 
 
-net_type = 'BBBResnet'
+net_type = 'flowtest'
 dataset = 'Resnet18-CIFAR10-SGD-Fixed'
 outputs = 10
 inputs = 3
@@ -210,6 +210,8 @@ elif (net_type == 'NBResnet'):
     net = CNN(inputs)
 elif (net_type == 'VDOResnet'):
     net = CNN(inputs, dropout_net = True)
+elif (net_type == 'flowtest'):
+    net = FlowTestNet(outputs,inputs)
 else:
     print('Error : Network should be either [LeNet / AlexNet / 3Conv3FC / Resnet]')
 
@@ -264,7 +266,7 @@ def train(epoch):
         if(use_cuda):inputs, targets = inputs.cuda(), targets.cuda()
         optimizer.zero_grad()
         if hasattr(net, 'probforward') and callable(net.probforward):
-               outputs, kl = net.probforward(inputs,dropout)
+               outputs, kl = net.probforward(inputs)
                loss = elbo(outputs, targets, kl, get_beta(epoch, len(train_data), beta_type))
                loss.backward()
                optimizer.step()
