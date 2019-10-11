@@ -44,7 +44,7 @@ class BBBAlexNet(nn.Module):
 
         self.layers = nn.ModuleList(layers)
 
-    def probforward(self, x):
+    def probforward(self, x,num_samples=1):
         kl = 0
         for layer in self.layers:
             if hasattr(layer, 'probforward') and callable(layer.probforward):
@@ -52,7 +52,7 @@ class BBBAlexNet(nn.Module):
             else:
                 x = layer.forward(x)
         x = x.view(x.size(0), -1)
-        x, _kl = self.classifier.probforward(x)
+        x, _kl = self.classifier.probforward(x,num_samples)
         kl += _kl
         logits = x
         return logits, kl

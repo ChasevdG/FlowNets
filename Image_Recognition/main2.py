@@ -36,7 +36,7 @@ from torch.utils.data.sampler import SubsetRandomSampler
 
 # from utils.BBBlayers import GaussianVariationalInference
 # from utils.BayesianModels.Bayesian3Conv3FC import BBB3Conv3FC
-from utils.BayesianModels.FlowTest import FlowTestNet
+from utils.BayesianModels.FlowAlexNet import BBBAlexNet 
 # from utils.BayesianModels.BayesianLeNet import BBBLeNet
 # from utils.BayesianModels.BayesianSqueezeNet import BBBSqueezeNet
 
@@ -44,14 +44,14 @@ from utils.BayesianModels.FlowTest import FlowTestNet
 # In[3]:
 
 
-net_type = 'flow'
+net_type = 'alexnet'
 dataset = 'CIFAR10'
 outputs = 10
-inputs = 1
+inputs = 3
 resume = False
 n_epochs = 150
-lr = 0.01
-weight_decay = 0.0005
+lr = 0.005
+weight_decay = 0.000
 num_samples = 1
 beta_type = "none"
 #beta_type = "Standard"
@@ -94,9 +94,9 @@ test_transform = transforms.Compose([
 ])
 
 # choose the training and test datasets
-train_data = datasets.MNIST('data', train=True,
+train_data = datasets.CIFAR10('data', train=True,
                               download=True, transform=transform)
-test_data = datasets.MNIST('data', train=False,
+test_data = datasets.CIFAR10('data', train=False,
                              download=True, transform=test_transform)
 
 
@@ -138,35 +138,11 @@ test_loader = torch.utils.data.DataLoader(test_data, batch_size=batch_size,
 classes = ['airplane', 'automobile', 'bird', 'cat', 'deer',
            'dog', 'frog', 'horse', 'ship', 'truck']
 
-
-# In[11]:
-
-
-
 # helper function to un-normalize and display an image
     # Uncomment if normalizing the data
     #img = img / 2 + 0.5  # unnormalize
 
-
-# In[12]:
-
-
-# obtain one batch of training images
 iter(train_loader)
-
-#dataiter = iter(train_loader)
-#images, labels = dataiter.next()
-#images = images.numpy() # convert images to numpy for display
-
-# plot the images in the batch, along with the corresponding labels
-# display 20 images
-
-# In[13]:
-
-
-#rgb_img = np.squeeze(images[3])
-#channels = ['red channel', 'green channel', 'blue channel']
-
 
 # Architecture
 if (net_type == 'lenet'):
@@ -181,7 +157,7 @@ elif (net_type == 'flow'):
 else:
     print('Error : Network should be either [LeNet / AlexNet / 3Conv3FC')
 
-
+torch.autograd.set_detect_anomaly(True)
 # In[15]:
 
 
@@ -235,6 +211,8 @@ def train(epoch):
         inputs, targets = inputs.cuda(), targets.cuda()
         optimizer.zero_grad()
         outputs, kl = net.probforward(inputs)
+        #norm_factor = torch.sum(outputs,1)
+        #outputs = torch.t(torch.t(outputs)/norm_factor)
         loss = elbo(outputs, targets, kl, get_beta(epoch, len(train_data), beta_type))
         loss.backward()
         optimizer.step()
@@ -243,7 +221,7 @@ def train(epoch):
         total += targets.numel()
     print(f'[TRAIN] Acc: {100.*correct/total:.3f} Loss: {loss:.3f}')
     sys.stdout.flush()
-
+    return loss
 
 # In[20]:
 
@@ -253,20 +231,28 @@ def test(epoch):
     test_loss = 0
     correct = 0
     total = 0
+    n=1
     accuracy_max = 0    
     with torch.no_grad():
         for batch_idx, (inputs, targets) in enumerate(test_loader):
             inputs, targets = inputs.cuda(), targets.cuda()
-            outputs, kl = net.probforward(inputs)
+            if n == 1:
+               outputs, kl = net.probforward(inputs,10000)
+               n=0
+            else:
+               outputs, kl = net.probforward(inputs)
+
+            #norm_factor = torch.sum(outputs,1)
+            #outputs = torch.t(torch.t(outputs)/norm_factor)
+
             loss = elbo(outputs, targets, kl, get_beta(epoch, len(train_data), beta_type))
             _, predicted = outputs.max(1)
             total += targets.size(0)
             correct += predicted.eq(targets).sum().item()
             accuracy = 100.*correct/total
         print(f'[TEST] Acc: {accuracy:.3f} Loss: {loss:.3f}')
-        
-
     torch.save(net.state_dict(), ckpt_name)
+    return loss
     
 
 
@@ -275,8 +261,8 @@ def test(epoch):
 
 epochs = [80, 60, 40, 20]
 count = 0
-
-
+tr_losses = np.array([])
+te_losses = np.array([])
 # In[22]:
 
 
@@ -284,12 +270,16 @@ from torch.optim import Adam
 for epoch in epochs:
     optimizer = Adam(net.parameters(), lr=lr)
     for _ in range(epoch):
-        train(count)
-        test(count)
+        losses = train(count)
+        with torch.no_grad():
+            tr_losses = np.append(tr_losses,losses.cpu().detach())
+        losses = test(count)
+        with torch.no_grad():
+            te_losses = np.append(te_losses,losses.cpu().detach())
         count += 1
+        np.savetxt('Train_Losses.txt',tr_losses)
+        np.savetxt('Test_Losses.txt',te_losses)
     lr /= 10
-
-
 # In[23]:
 
 

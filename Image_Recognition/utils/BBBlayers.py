@@ -6,7 +6,8 @@ from torch.nn import Parameter
 import warnings
 import sys
 import numpy as np
-import tensorboardX
+import matplotlib.pyplot as plt
+
 class FlattenLayer(nn.Module):
 
     def __init__(self, num_features):
@@ -92,7 +93,7 @@ class BBBConv2d(nn.Module):
 
 
 class BBBLinearFactorial(nn.Module):
-    def __init__(self, q_logvar_init, p_logvar_init, in_features, out_features, bias=False, flow = False, flow_function_type = None,flow_length = 1):
+    def __init__(self, q_logvar_init, p_logvar_init, in_features, out_features, bias=False, flow = False, flow_function_type = None,flow_length = 3):
         super(BBBLinearFactorial, self).__init__()
         
         #Bayes-by-Backprop params
@@ -127,10 +128,55 @@ class BBBLinearFactorial(nn.Module):
         z_new = z + u*h(w*z+b)
         return z_new, det.abs()
 
-    def probforward(self, input):
-        sig_weight = torch.exp(self.sigma_weight)
+    def probforward(self, input, num_samples =1):
+        out, loss, flow_weights, flow_weight_0 = self.pbforward(input)
+        output_mat = np.array([])
+        with torch.no_grad():
+                a = flow_weights.cpu()
+                output_mat = np.array(a[0].tolist())
+                n = len(output_mat)
+                output_mat = output_mat.reshape(len(output_mat),1)
+
+                b = flow_weight_0.cpu()
+                input_mat = np.array(b[0].tolist())
+                n = len(input_mat)
+                input_mat = input_mat.reshape(len(output_mat),1)
+        for _ in range(num_samples-1):
+            cur_out, cur_loss,weight,weight_0 = self.pbforward(input)
+            out += cur_out
+            with torch.no_grad():
+                a = weight.cpu()
+                #For Cov after flow
+                temp = np.array(a[0])
+                temp = temp.reshape(n,1)
+                output_mat = np.concatenate((output_mat,temp), axis = 1)
+                #Cov before the flow
+                b = weight_0.cpu()
+                temp = np.array(b[0])
+                temp = temp.reshape(n,1)
+                input_mat = np.concatenate((input_mat,temp), axis = 1)
+
+            loss += cur_loss
+        if(num_samples > 1):
+            X = np.corrcoef(input_mat)
+            Y = np.corrcoef(output_mat)
+            #print(X.shape)
+            
+            np.save('in_cov2',X)
+            np.save('out_cov2',Y)
+            #np.savetxt('in_mat.txt',input_mat)
+            #np.savetxt('out_mat.txt',output_mat)
+            #print("Saved cov")
+        #print(output_mat.shape)
+        return out/num_samples, loss/num_samples
+            
+
+
+
+    def pbforward(self,input):
+        sig_weight = torch.log(1+torch.exp(self.sigma_weight))
         weight_0 = self.mu_weight + sig_weight * self.eps_weight.normal_()
-        q0_z0 = -0.5*(self.q_logvar_init + (weight_0 - self.mu_weight)*(weight_0 - self.mu_weight)*sig_weight.reciprocal()) #log q_0(z_0)
+        q0_z0 = -0.5*(torch.log(sig_weight) + (weight_0 - self.mu_weight)*(weight_0 - self.mu_weight)*sig_weight.reciprocal()*sig_weight.reciprocal()) #log q_0(z_0)
         bias = None
         sum_det = 0
         weight = weight_0
@@ -139,7 +185,7 @@ class BBBLinearFactorial(nn.Module):
            for transform in self.flow_layers:
               z = weight
               z_prime, det = transform(torch.t(z))
-              weight = z_prime*det
+              weight = z_prime
               sys.stdout.flush()
               sum_det = det.sum()
               weight = torch.t(weight)
@@ -149,29 +195,23 @@ class BBBLinearFactorial(nn.Module):
              kl_ = math.log(self.q_logvar_init) - self.sigma_weight + (sig_weight**2 + self.mu_weight**2) / (2 * self.q_logvar_init ** 2)  - 0.5
              loss = kl_.sum()
         out = F.linear(input, weight, bias)
-        return out, loss
+        return out, loss, weight, weight_0
  
-    def flow_Function(flow_type):
-       if(flow_type == "planar"):
-           fun = NormalizingFlow.planar, NormalizingFlow.planar_det
-       else:
-           fun = None
-       return fun
-
-    def check_corr(self, num_samples):
-       mat = torch.Tensor([])
-       for _ in range(num_samples):
-           sig_weight1 = torch.exp(self.sigma_weight)
-           weight_01 = self.mu_weight + sig_weight1 * self.eps_weight.normal_()
-           weight1 = weight_01
-           for transform in self.flow_layers:
+def check_corr(model, num_samples):
+       
+         mat = np.array([])
+         for _ in range(num_samples):
+            sig_weight1 = torch.exp(model.sigma_weight)
+            weight_01 = model.mu_weight + sig_weight1 * model.eps_weight.normal_()
+            weight1 = weight_01
+            for transform in self.flow_layers:
               z1 = weight1
               z1_prime, _ = transform(torch.t(z1))
               weight1 = z1_prime
               weight1 = torch.t(weight1)
-           torch.cat((mat,weight1), dim=1)
-       print(mat.shape)
-       return mat
+            np.append(mat,weight1.cpu())
+         print(mat.shape)
+         return mat
 
 class FlowLayer(nn.Module):
     def __init__(self,out_features, in_features, conv_dim1=0,conv_dim2=0):
